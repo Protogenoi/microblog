@@ -1,4 +1,4 @@
-2019-06-26 12:34:52,787 ERROR: Exception on /index [POST] [in /Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py:1780]
+2019-06-26 12:50:11,307 ERROR: Exception on /explore [GET] [in /Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py:1780]
 Traceback (most recent call last):
   File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,10 +14,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/michael/PycharmProjects/microblog/app/routes.py", line 24, in index
-    post = Post(body=form.post.date, author=current_user)
-AttributeError: 'TextAreaField' object has no attribute 'date'
-2019-06-26 12:34:57,034 ERROR: Exception on /index [POST] [in /Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py:1780]
+  File "/Users/michael/PycharmProjects/microblog/app/routes.py", line 38, in explore
+    page, app.config['POSTS_PER_PAGE'], False)
+KeyError: 'POSTS_PER_PAGE'
+2019-06-26 12:51:49,348 INFO: Microblog startup [in /Users/michael/PycharmProjects/microblog/app/__init__.py:43]
+2019-06-26 12:51:58,723 ERROR: Exception on /explore [GET] [in /Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py:1780]
 Traceback (most recent call last):
   File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -33,28 +34,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/michael/PycharmProjects/microblog/app/routes.py", line 24, in index
-    post = Post(body=form.post.date, author=current_user)
-AttributeError: 'TextAreaField' object has no attribute 'date'
-2019-06-26 12:36:16,813 INFO: Microblog startup [in /Users/michael/PycharmProjects/microblog/app/__init__.py:43]
-2019-06-26 12:47:21,810 INFO: Microblog startup [in /Users/michael/PycharmProjects/microblog/app/__init__.py:43]
-2019-06-26 12:47:39,146 ERROR: Exception on /explore [GET] [in /Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py:1780]
-Traceback (most recent call last):
-  File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
-    reraise(exc_type, exc_value, tb)
-  File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
-    raise value
-  File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1832, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1818, in dispatch_request
-    return self.view_functions[rule.endpoint](**req.view_args)
-  File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
-    return func(*args, **kwargs)
-  File "/Users/michael/PycharmProjects/microblog/app/routes.py", line 36, in explore
+  File "/Users/michael/PycharmProjects/microblog/app/routes.py", line 37, in explore
     return render_template('index.html', title='Explore', posts=posts)
   File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
     context, ctx.app)
@@ -77,8 +57,8 @@ Traceback (most recent call last):
   File "/Users/michael/PycharmProjects/microblog/app/templates/_post.html", line 3, in top-level template code
     <td><img src="{{ post.author.avatar(36) }}"></td>
 jinja2.exceptions.UndefinedError: 'None' has no attribute 'avatar'
-2019-06-26 12:48:29,229 INFO: Microblog startup [in /Users/michael/PycharmProjects/microblog/app/__init__.py:43]
-2019-06-26 12:48:33,950 ERROR: Exception on /explore [GET] [in /Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py:1780]
+2019-06-26 12:53:18,072 INFO: Microblog startup [in /Users/michael/PycharmProjects/microblog/app/__init__.py:43]
+2019-06-26 12:53:21,852 ERROR: Exception on /explore [GET] [in /Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py:1780]
 Traceback (most recent call last):
   File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
     response = self.full_dispatch_request()
@@ -94,7 +74,7 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/Users/michael/PycharmProjects/microblog/app/routes.py", line 36, in explore
+  File "/Users/michael/PycharmProjects/microblog/app/routes.py", line 37, in explore
     return render_template('index.html', title='Explore', posts=posts)
   File "/Users/michael/PycharmProjects/microblog/venv/lib/python3.7/site-packages/flask/templating.py", line 135, in render_template
     context, ctx.app)
@@ -117,4 +97,3 @@ Traceback (most recent call last):
   File "/Users/michael/PycharmProjects/microblog/app/templates/_post.html", line 3, in top-level template code
     <td><img src="{{ post.author.avatar(36) }}"></td>
 jinja2.exceptions.UndefinedError: 'None' has no attribute 'avatar'
-2019-06-26 12:50:06,109 INFO: Microblog startup [in /Users/michael/PycharmProjects/microblog/app/__init__.py:43]
